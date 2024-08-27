@@ -79,12 +79,12 @@ class Transformer_encoder(Layer):
     
     def call(self , input):
         x1 = self.normalization_layer1(input)
-        x_1 = self.dropout_1(x_1)
+        x1 = self.dropout_1(x1)
 
         x1 = self.attention_layer(x1 , x1)
         x1 = Add()([x1 , input])
         x2 = self.normalization_layer2(x1)
-        x_1 = self.dropout_2(x_1)
+        x2 = self.dropout_2(x2)
 
         x2 = self.Dense_layer_1(x2)
         output = self.Dense_layer_2(x2)
@@ -288,6 +288,8 @@ def plot_history(history):
     plt.legend()
 
     plt.show()
+    plt.savefig("figs\paper_tlk")
+
 
 
 def evaluate(model , test_dataset):
@@ -322,7 +324,7 @@ def training_vit(vit , training_dataset , val_dataset):
     return history , time_taken
 
 
-def main():
+def vit_paper_tkl_func():
     
     vit = build_vit()
     training_dataset , test_dataset , val_dataset = load_dataset()
@@ -355,10 +357,10 @@ def main():
 
 
 
-
+'''
 
 if __name__ == "__main__":
     CONFIGURATION = CONFIGURATION
 
-    main()
-
+    vit_paper_tkl_func()
+'''

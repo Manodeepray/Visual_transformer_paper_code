@@ -1,6 +1,59 @@
 from shutil import copyfile
 import os
+import pandas as pd
+import shutil
 
+def class_splitter(csv_path , images_dir , split_dataset):
+    df = pd.read_csv(csv_path)
+    list_dirs = df.columns
+    list_dirs = list(list_dirs)
+
+    image_paths = []
+    split_dataset = 'class_split_dataset'
+    images_dir = "images_dataset"
+
+
+
+    os.makedirs(split_dataset , exist_ok =True)
+    x = df.iloc[:,0].values
+    y = df.iloc[:,1:].values
+
+
+    for item in list_dirs:
+        print(item)
+        os.makedirs(os.path.join(split_dataset,str(item)) , exist_ok = True)
+
+
+
+
+
+
+
+    for i in range(len(df)):
+        image_path = os.path.join(images_dir,str(x[i])+".jpg")
+        if df['MEL'][i] == 1 :
+            new_path = os.path.join(split_dataset,"MEL",str(x[i])+".jpg")
+            shutil.copyfile(image_path, new_path)
+        elif df['NV'][i] == 1 :
+            new_path = os.path.join(split_dataset,"NV",str(x[i])+".jpg")
+            shutil.copyfile(image_path, new_path)
+        elif df['BCC'][i] == 1 :
+            new_path = os.path.join(split_dataset,"BCC",str(x[i])+".jpg")
+            shutil.copyfile(image_path, new_path)
+        elif df['AKIEC'][i] == 1 :
+            new_path = os.path.join(split_dataset,"AKIEC",str(x[i])+".jpg")
+            shutil.copyfile(image_path, new_path)
+        elif df['BKL'][i] == 1 :
+            new_path = os.path.join(split_dataset,"BKL",str(x[i])+".jpg")
+            shutil.copyfile(image_path, new_path)
+        elif df['DF'][i] == 1 :
+            new_path = os.path.join(split_dataset,"DF",str(x[i])+".jpg")
+            shutil.copyfile(image_path, new_path)
+        elif df['VASC'][i] == 1 :
+            new_path = os.path.join(split_dataset,"VASC",str(x[i])+".jpg")
+            shutil.copyfile(image_path, new_path)
+        
+    
 def dir_split(data_dir,new_dataset_dir):
     os.makedirs(new_dataset_dir , exist_ok =True)
 
@@ -52,11 +105,25 @@ def dir_split(data_dir,new_dataset_dir):
 
 
 
-
-
+    os.rmdir(os.path.join(train_dir,"image"))
+    os.rmdir(os.path.join(test_dir,"image"))
+    os.rmdir(os.path.join(val_dir,"image"))
+    
+    
     return train_dir , test_dir , val_dir
 
-split_dataset = 'test_train_dataset'
+def main():
+    csv_path = "/GroundTruth.csv"
+    split_dataset = 'class_split_dataset'
+    images_dir = "images_dataset"
 
-dataset = 'dataset'
-train_dir , test_dir , val_dir = dir_split(dataset , split_dataset)
+    class_splitter(csv_path=csv_path,images_dir=images_dir , split_dataset= split_dataset)
+
+    split_dataset = 'test_train_dataset'
+
+    dataset = 'class_split_dataset'
+    train_dir , test_dir , val_dir = dir_split(dataset , split_dataset)
+
+
+if __name__== "__main__":
+    main()
