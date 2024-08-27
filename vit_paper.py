@@ -245,7 +245,7 @@ def plot_history(history):
     plt.legend()
 
     plt.show()
-    plt.savefig("figs\paper")
+#    plt.savefig("figs\paper")
 
 
 def evaluate(model , test_dataset):

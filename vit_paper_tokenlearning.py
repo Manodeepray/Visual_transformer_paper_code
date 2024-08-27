@@ -288,7 +288,7 @@ def plot_history(history):
     plt.legend()
 
     plt.show()
-    plt.savefig("figs\paper_tlk")
+#    plt.savefig("figs\paper_tlk")
 
 
 
@@ -357,10 +357,10 @@ def vit_paper_tkl_func():
 
 
 
-'''
+
 
 if __name__ == "__main__":
     CONFIGURATION = CONFIGURATION
 
     vit_paper_tkl_func()
-'''
+
