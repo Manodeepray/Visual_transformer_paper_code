@@ -224,7 +224,8 @@ def load_dataset():
 
 
 def plot_history(history):
-    
+    plt.title("vit paper token learning")
+
     plt.figure(figsize=(12, 5))
 
     plt.subplot(1, 2, 1)

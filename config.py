@@ -15,9 +15,9 @@ CONFIGURATION = {
     "POOL_SIZE": 2,
     "N_DENSE_1": 1024,
     "N_DENSE_2": 128,
-    "NUM_CLASSES": 6,
+    "NUM_CLASSES": 7,
     "PATCH_SIZE": 16,
     "PROJ_DIM": 768,
-    "CLASS_NAMES": [ 'BCC', 'BKL', 'DF', 'MEL', 'NV', 'VASC'],
+    "CLASS_NAMES": ['AKIEC', 'BCC', 'BKL', 'DF', 'MEL', 'NV', 'VASC'],
 }
 

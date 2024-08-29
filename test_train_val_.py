@@ -113,15 +113,14 @@ def dir_split(data_dir,new_dataset_dir):
     return train_dir , test_dir , val_dir
 
 def main():
-    csv_path = "/GroundTruth.csv"
-    split_dataset = 'class_split_dataset'
-    images_dir = "images_dataset"
-
-    class_splitter(csv_path=csv_path,images_dir=images_dir , split_dataset= split_dataset)
-
+#   csv_path = "/GroundTruth.csv"
+#   split_dataset = 'class_split_dataset'
+    images_dir = "dataset"
+#   class_splitter(csv_path=csv_path,images_dir=images_dir , split_dataset= split_dataset)
+#
     split_dataset = 'test_train_dataset'
 
-    dataset = 'class_split_dataset'
+    dataset = 'dataset'
     train_dir , test_dir , val_dir = dir_split(dataset , split_dataset)
 
 
