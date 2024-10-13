@@ -3,7 +3,7 @@ CONFIGURATION = {
     "N_PATCHES": (256 // 16) * (256 // 16),
     "HIDDEN_SIZE": 64,
 
-    "BATCH_SIZE": 32,
+    "BATCH_SIZE": 2,
     "IM_SIZE": 256,
     "LEARNING_RATE": 1e-3,
     "N_EPOCHS": 20,
